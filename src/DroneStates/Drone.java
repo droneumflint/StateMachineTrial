@@ -4,19 +4,16 @@ public class Drone {
 	DroneState tracking;
 	DroneState assisting;
 	DroneState returning;
-	DroneState atBase;
-	
+	DroneState atBase;	
 	DroneState droneState;
+	double batteryLevel = 100
+			;
 	public Drone(){
 		searching = new Searching(this);
 		tracking = new Tracking(this);
 		assisting = new Assisting(this);
 		returning = new Returning(this);
-		atBase = new AtBase(this);
-		
-		
-		
-		
+		atBase = new AtBase(this);	
 	}
 	public void setDroneState(DroneState newDroneState){
 		droneState= newDroneState;
@@ -78,6 +75,10 @@ public class Drone {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+	public double returnBatteryLevel(double level){
+		batteryLevel = level;
+		return level;
 	}
 
 }
