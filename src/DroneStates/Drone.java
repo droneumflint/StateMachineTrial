@@ -5,9 +5,11 @@ public class Drone {
 	DroneState assisting;
 	DroneState returning;
 	DroneState atBase;	
-	DroneState droneState;
-	double batteryLevel = 100
-			;
+	DroneState dronesState = atBase;
+	double batteryLevel = 100;
+	Event currentEvent;
+	static EventListener eventListener = new EventListener();
+	
 	public Drone(){
 		searching = new Searching(this);
 		tracking = new Tracking(this);
@@ -16,8 +18,11 @@ public class Drone {
 		atBase = new AtBase(this);	
 	}
 	public void setDroneState(DroneState newDroneState){
-		droneState= newDroneState;
+		dronesState= newDroneState;
 	}
+	public DroneState getCurrentState(){
+		return dronesState;
+		}
 	public void initalize() {
 		// TODO Auto-generated method stub
 
@@ -73,6 +78,9 @@ public class Drone {
 	}
 
 	public static void main(String[] args) {
+		PlanSent planSent = new PlanSent(eventListener);
+		System.out.println(eventListener.eventList.get(eventListener.eventList.size()-1));
+
 		// TODO Auto-generated method stub
 
 	}
