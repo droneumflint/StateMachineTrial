@@ -1,11 +1,14 @@
 package DroneStates;
 
 public class PlanSent extends Event {
-	EventListener eventListener;
-	public PlanSent(EventListener eventListener){
-		this.eventListener = eventListener; 
-		sendToListener();
+	public PlanSent(EventListener eventListener) {
+		super(eventListener);
+		// TODO Auto-generated constructor stub
 	}
+
+
+	EventListener eventListener;
+	
 
 	private void sendToListener() {
 		eventListener.addEvent(this);

@@ -7,7 +7,7 @@ public class Drone {
 	DroneState atBase;	
 	DroneState dronesState = atBase;
 	double batteryLevel = 100;
-	Event currentEvent;
+	static Event currentEvent;
 	static EventListener eventListener = new EventListener();
 	
 	public Drone(){
@@ -79,7 +79,10 @@ public class Drone {
 
 	public static void main(String[] args) {
 		PlanSent planSent = new PlanSent(eventListener);
-		System.out.println(eventListener.eventList.get(eventListener.eventList.size()-1));
+		int i =1;
+		while (i<10){
+			currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+		}
 
 		// TODO Auto-generated method stub
 
