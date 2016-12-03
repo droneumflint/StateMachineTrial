@@ -1,6 +1,7 @@
 package DroneStates;
 
 public class Returning implements DroneState {
+	private boolean active = false;
 	Drone drone;
 	public Returning(Drone newDrone){
 		
@@ -67,5 +68,16 @@ public class Returning implements DroneState {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive() {
+		active = true;
+	}
 
+	public void setDeactive() {
+		active = false;
+	}
 }

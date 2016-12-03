@@ -1,6 +1,7 @@
 package DroneStates;
 
 public interface DroneState {
+	
 	void initalize();
 	void planRecieved();
 	void requestVerAssist();
@@ -12,5 +13,9 @@ public interface DroneState {
 	void foundTarget();
 	void verAssist();
 	void comAssist();
+	
+	boolean isActive();
+	void setActive();
+	void setDeactive();
 
 }

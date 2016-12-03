@@ -1,6 +1,8 @@
 package DroneStates;
 
 public class Assisting implements DroneState {
+	
+	private boolean active = false;
 
 	public Assisting(Drone drone) {
 		// TODO Auto-generated constructor stub
@@ -55,6 +57,18 @@ public class Assisting implements DroneState {
 	public void comAssist() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive() {
+		active = true;
+	}
+	
+	public void setDeactive() {
+		active = false;
 	}
 
 }

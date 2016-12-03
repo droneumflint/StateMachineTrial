@@ -1,6 +1,8 @@
 package DroneStates;
 
 public class AtBase implements DroneState {
+	
+	private boolean active = true;
 
 
 	public AtBase(Drone drone) {
@@ -63,6 +65,18 @@ public class AtBase implements DroneState {
 	public void comAssist() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive() {
+		active = true;
+	}
+	
+	public void setDeactive() {
+		active = false;
 	}
 
 }

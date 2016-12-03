@@ -1,6 +1,8 @@
 package DroneStates;
 
 public class Searching implements DroneState {
+	
+	private boolean active = false;
 
 	public Searching(Drone drone) {
 		// TODO Auto-generated constructor stub
@@ -56,5 +58,16 @@ public class Searching implements DroneState {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive() {
+		active = true;
+	}
 
+	public void setDeactive() {
+		active = false;
+	}
 }

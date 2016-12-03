@@ -1,14 +1,16 @@
 package DroneStates;
 public class Drone {
-	DroneState searching;
-	DroneState tracking;
-	DroneState assisting;
-	DroneState returning;
-	DroneState atBase;	
-	DroneState dronesState = atBase;
+	static DroneState searching;
+	static DroneState tracking;
+	static DroneState assisting;
+	static DroneState returning;
+	static DroneState atBase;	
+	static DroneState dronesState = atBase;
 	double batteryLevel = 100;
 	static Event currentEvent;
 	static EventListener eventListener = new EventListener();
+	
+	
 	
 	public Drone(){
 		searching = new Searching(this);
@@ -78,13 +80,22 @@ public class Drone {
 	}
 
 	public static void main(String[] args) {
-		PlanSent planSent = new PlanSent(eventListener);
-		int i =1;
-		while (i<10){
-			currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+		if (dronesState == atBase){
+			PlanSent planSent = new PlanSent(eventListener);
+			int i =1;
+			while (i<10){
+				currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+				
+				i++;
+				System.out.println(currentEvent);
+			}
+		
 		}
+		
+		
 
 		// TODO Auto-generated method stub
+	
 
 	}
 	public double returnBatteryLevel(double level){
