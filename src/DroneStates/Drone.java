@@ -28,51 +28,61 @@ public class Drone {
 	public void initalize() {
 		// TODO Auto-generated method stub
 		setDroneState(atBase);
+		System.out.println("Drone Currently at Base");
 
 	}
 
-	public void planRecieved() {
+	public static void planRecieved() {
 		// TODO Auto-generated method stub
 		setDroneState(searching);
+		System.out.println("Drone Currently Searching");
 	}
 
 	public void requestVerAssist() {
 		// TODO Auto-generated method stub
 		setDroneState(tracking);
+		System.out.println("Drone Currently Tracking");
 	}
 
 	public void requestComAssist() {
 		// TODO Auto-generated method stub
-		//Inside of searching
+		setDroneState(searching);
+		System.out.println("Drone Currently Searching");
 	}
 
 	public void returnToBase() {
 		// TODO Auto-generated method stub
 		setDroneState(atBase);
+		System.out.println("Drone Currently at Base");
 	}
 
 	public void verFailed() {
 		// TODO Auto-generated method stub
 		setDroneState(searching);
+		System.out.println("Drone Currently Searching");
 	}
 	public void verSuccess() {
 		// TODO Auto-generated method stub
-		//Inside of Tracking
+		setDroneState(tracking);
+		System.out.println("Drone Currently Tracking");
 	}
 	public static void nearPONR() {
 		// TODO Auto-generated method stub
 		setDroneState(returning);	//Set drone state to returning
+		System.out.println("Drone Currently Returning");
 	}
 
 	
 	public void foundTarget() {
 		// TODO Auto-generated method stub
 		setDroneState(tracking);
+		System.out.println("Drone Currently Tracking");
 	}
 
 	public void verAssist() {
 		// TODO Auto-generated method stub
 		setDroneState(tracking);
+		System.out.println("Drone Currently Tracking");
 	}
 
 	public void comAssist() {
@@ -85,22 +95,23 @@ public class Drone {
 			PlanSent planSent = new PlanSent(eventListener);
 				currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
 				System.out.println(currentEvent);
+				planRecieved();
 				
 		}
-
+		
 		//This while loop tests PONR functionality, batteryLevel starts at 100
 		//and decrements by 25 until reaching 50
 		while (batteryLevel > 50 ){
 			batteryLevel -= 25;
 			if(batteryLevel == 50){
+				PONR PONR = new PONR(eventListener); //Fire event
+				currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+				System.out.println(currentEvent);
 				nearPONR();
 			}
 						
 		}
-		
-		PONR PONR = new PONR(eventListener); //Fire event
-		currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1); //Event listener
-		System.out.println("Low on fuel! Returning to base!");
+	
 	}
 		// TODO Auto-generated method stub
 	
