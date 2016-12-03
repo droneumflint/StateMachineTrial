@@ -6,7 +6,7 @@ public class Drone {
 	DroneState returning;
 	DroneState atBase;	
 	DroneState dronesState = atBase;
-	double batteryLevel = 100;
+	static double batteryLevel = 100; //changed this to static
 	static Event currentEvent;
 	static EventListener eventListener = new EventListener();
 	
@@ -80,10 +80,24 @@ public class Drone {
 	public static void main(String[] args) {
 		PlanSent planSent = new PlanSent(eventListener);
 		int i =1;
+
 		while (i<10){
 			currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+			System.out.println("Hey look I created an eventListener and appended to eventList");
+			i++;
 		}
-
+		//This while loop tests PONR functionality, batteryLevel starts at 100
+		//and decrements by 25 until reaching 50
+		while (batteryLevel > 50 ){
+			batteryLevel -= 25;
+			if(batteryLevel == 50){
+				PONR PONR = new PONR(eventListener);
+				currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
+				System.out.println("Low on fuel! Returning to base!");
+			}
+			
+			
+		}
 		// TODO Auto-generated method stub
 
 	}
