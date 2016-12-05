@@ -4,7 +4,7 @@ public class Tracking implements DroneState {
 	
 	private boolean active = false;
 
-	public Tracking(Drone drone) {
+	public Tracking(DroneFSM drone) {
 		// TODO Auto-generated constructor stub
 	}
 	public void initalize() {

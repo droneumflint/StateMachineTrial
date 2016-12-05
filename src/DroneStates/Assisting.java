@@ -4,7 +4,7 @@ public class Assisting implements DroneState {
 	
 	private boolean active = false;
 
-	public Assisting(Drone drone) {
+	public Assisting(DroneFSM drone) {
 		// TODO Auto-generated constructor stub
 	}
 

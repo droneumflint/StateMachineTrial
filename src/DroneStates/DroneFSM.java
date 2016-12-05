@@ -1,5 +1,10 @@
 package DroneStates;
-public class Drone {
+
+import DroneEvents.Event;
+import DroneEvents.EventListener;
+import DroneEvents.PONR;
+
+public class DroneFSM {
 	static DroneState searching;
 	static DroneState tracking;
 	static DroneState assisting;
@@ -12,7 +17,7 @@ public class Drone {
 
 	
 	
-	public Drone(){
+	public DroneFSM(){
 		searching = new Searching(this);
 		tracking = new Tracking(this);
 		assisting = new Assisting(this);

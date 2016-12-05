@@ -5,7 +5,7 @@ public class AtBase implements DroneState {
 	private boolean active = true;
 
 
-	public AtBase(Drone drone) {
+	public AtBase(DroneFSM drone) {
 		// TODO Auto-generated constructor stub
 	}
 

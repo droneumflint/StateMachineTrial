@@ -1,7 +1,8 @@
-package DroneStates;
+package DroneEvents;
+
 //AssistConfirmed class that creates an event and listener
-public class MissionCompleted extends Event {
-	public MissionCompleted(EventListener eventListener) {
+public class Initialize extends Event {
+	public Initialize(EventListener eventListener) {
 		super(eventListener);
 		// TODO Auto-generated constructor stub
 	}
@@ -9,6 +10,6 @@ public class MissionCompleted extends Event {
 		eventListener.addEvent(this);
 			
 		// TODO Auto-generated method stub
-			
+	
 	}
 }

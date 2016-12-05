@@ -1,7 +1,8 @@
-package DroneStates;
+package DroneEvents;
+
 //AssistConfirmed class that creates an event and listener
-public class VerAssistRequest extends Event {
-	public VerAssistRequest(EventListener eventListener) {
+public class MissionCompleted extends Event {
+	public MissionCompleted(EventListener eventListener) {
 		super(eventListener);
 		// TODO Auto-generated constructor stub
 	}

@@ -2,8 +2,8 @@ package DroneStates;
 
 public class Returning implements DroneState {
 	private boolean active = false;
-	Drone drone;
-	public Returning(Drone newDrone){
+	DroneFSM drone;
+	public Returning(DroneFSM newDrone){
 		
 		drone=newDrone;
 	}

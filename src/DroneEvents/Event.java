@@ -1,4 +1,4 @@
-package DroneStates;
+package DroneEvents;
 
 public abstract class Event {
 	EventListener eventListener;

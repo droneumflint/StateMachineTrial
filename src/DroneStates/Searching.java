@@ -4,7 +4,7 @@ public class Searching implements DroneState {
 	
 	private boolean active = false;
 
-	public Searching(Drone drone) {
+	public Searching(DroneFSM drone) {
 		// TODO Auto-generated constructor stub
 	}
 

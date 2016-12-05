@@ -1,7 +1,8 @@
-package DroneStates;
+package DroneEvents;
+
 //AssistConfirmed class that creates an event and listener
-public class Damage extends Event {
-	public Damage(EventListener eventListener) {
+public class PlanSuspending extends Event {
+	public PlanSuspending(EventListener eventListener) {
 		super(eventListener);
 		// TODO Auto-generated constructor stub
 	}

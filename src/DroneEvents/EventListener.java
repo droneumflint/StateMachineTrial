@@ -1,4 +1,4 @@
-package DroneStates;
+package DroneEvents;
 
 import java.util.ArrayList;
 import java.util.List;

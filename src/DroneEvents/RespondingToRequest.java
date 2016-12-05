@@ -1,4 +1,5 @@
-package DroneStates;
+package DroneEvents;
+
 //AssistConfirmed class that creates an event and listener
 public class RespondingToRequest extends Event {
 	public RespondingToRequest(EventListener eventListener) {
