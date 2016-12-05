@@ -5,17 +5,12 @@ import DroneEvents.EventListener;
 import DroneEvents.PONR;
 
 public class DroneFSM {
-	static DroneState searching;
-	static DroneState tracking;
-	static DroneState assisting;
-	static DroneState returning;
-	static DroneState atBase;	
-	static DroneState dronesState = atBase;
-	static double batteryLevel = 100; //changed this to static
-	static Event currentEvent;
-	static EventListener eventListener = new EventListener();
-
-	
+	DroneState searching;
+	DroneState tracking;
+	DroneState assisting;
+	DroneState returning;
+	DroneState atBase;	
+	DroneState dronesState;
 	
 	public DroneFSM(){
 		searching = new Searching(this);
@@ -23,79 +18,94 @@ public class DroneFSM {
 		assisting = new Assisting(this);
 		returning = new Returning(this);
 		atBase = new AtBase(this);	
+		dronesState = atBase;
 	}
-	public static void setDroneState(DroneState newDroneState){
+	public void setDroneState(DroneState newDroneState){
 		dronesState= newDroneState;
 	}
-	public static DroneState getCurrentState(){
+	public DroneState getCurrentState(){
 		return dronesState;
 		}
 	public void initalize() {
 		// TODO Auto-generated method stub
-		setDroneState(atBase);
-		System.out.println("Drone Currently at Base");
+		dronesState.initalize();
+	
 
 	}
 
-	public static void planRecieved() {
+	public void planRecieved() {
 		// TODO Auto-generated method stub
-		setDroneState(searching);
-		System.out.println("Drone Currently Searching");
+		dronesState.planRecieved();
+		//System.out.println("Drone Currently Plans Recieved in state: " + dronesState);
 	}
 
 	public void requestVerAssist() {
 		// TODO Auto-generated method stub
-		setDroneState(tracking);
-		System.out.println("Drone Currently Tracking");
+		dronesState.requestVerAssist();
+		//System.out.println("Drone Currently Tracking");
 	}
 
 	public void requestComAssist() {
 		// TODO Auto-generated method stub
-		setDroneState(searching);
-		System.out.println("Drone Currently Searching");
+		dronesState.requestComAssist();
+		//System.out.println("Drone Currently Searching");
 	}
 
 	public void returnToBase() {
 		// TODO Auto-generated method stub
-		setDroneState(atBase);
-		System.out.println("Drone Currently at Base");
+		dronesState.returnToBase();
+		//System.out.println("Drone Currently at Base");
 	}
 
 	public void verFailed() {
 		// TODO Auto-generated method stub
-		setDroneState(searching);
-		System.out.println("Drone Currently Searching");
+		dronesState.verFailed();
+		//System.out.println("Drone Currently Searching");
 	}
 	public void verSuccess() {
 		// TODO Auto-generated method stub
-		setDroneState(tracking);
-		System.out.println("Drone Currently Tracking");
+		dronesState.verSuccess();
+		//System.out.println("Drone Currently Tracking");
 	}
-	public static void nearPONR() {
+	public void nearPONR() {
 		// TODO Auto-generated method stub
-		setDroneState(returning);	//Set drone state to returning
-		System.out.println("Drone Currently Returning");
+		dronesState.nearPONR();	//Set drone state to returning
+		//System.out.println("Drone Currently Returning");
 	}
 
 	
 	public void foundTarget() {
 		// TODO Auto-generated method stub
-		setDroneState(tracking);
-		System.out.println("Drone Currently Tracking");
+		dronesState.foundTarget();
+		//System.out.println("Drone Currently Tracking");
 	}
 
 	public void verAssist() {
 		// TODO Auto-generated method stub
-		setDroneState(tracking);
-		System.out.println("Drone Currently Tracking");
+		dronesState.verAssist();
+		//System.out.println("Drone Currently Tracking");
 	}
 
 	public void comAssist() {
-		// TODO Auto-generated method stub
+		dronesState.comAssist();
 		//Inside of searching
 	}
+	public void recharged() {
+		dronesState.recharged();
+	}
+	public void atBase() {
+		dronesState.atBase();
+	}
+	
+	
+	
+	public DroneState getSearching() { return searching; }
+	public DroneState getTracking() { return tracking; }
+	public DroneState getAssisting() { return assisting; }
+	public DroneState getReturning() { return returning; }
 
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		if (dronesState == atBase){
 			PlanSent planSent = new PlanSent(eventListener);
 				currentEvent = eventListener.eventList.get(eventListener.eventList.size()-1);
@@ -124,5 +134,5 @@ public class DroneFSM {
 	public double returnBatteryLevel(double level){
 		batteryLevel = level;
 		return level;
-	}
+	}*/
 }

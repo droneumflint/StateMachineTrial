@@ -13,6 +13,9 @@ public interface DroneState {
 	void foundTarget();
 	void verAssist();
 	void comAssist();
+	void atBase();
+	void recharged();
+	void defaultAction();
 	
 	boolean isActive();
 	void setActive();

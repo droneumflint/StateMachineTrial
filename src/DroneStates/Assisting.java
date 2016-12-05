@@ -71,4 +71,23 @@ public class Assisting implements DroneState {
 		active = false;
 	}
 
+	@Override
+	public void defaultAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atBase() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	@Override
+	public void recharged() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

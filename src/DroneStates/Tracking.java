@@ -72,5 +72,20 @@ public class Tracking implements DroneState {
 	public void setDeactive() {
 		active = false;
 	}
+	@Override
+	public void defaultAction() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void atBase() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void recharged() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
