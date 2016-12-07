@@ -13,7 +13,7 @@ public interface DroneState {
 	void foundTarget();
 	void verAssist();
 	void comAssist();
-	void atBase();
+	void returnComplete();
 	void recharged();
 	void defaultAction();
 	

@@ -1,8 +1,7 @@
 package DroneStates;
 
-import DroneEvents.Event;
-import DroneEvents.EventListener;
-import DroneEvents.PONR;
+import DroneEvents.*;
+
 
 public class DroneFSM {
 	DroneState searching;
@@ -11,8 +10,11 @@ public class DroneFSM {
 	DroneState returning;
 	DroneState atBase;	
 	DroneState dronesState;
+	private EventListener eventListener;
 	
-	public DroneFSM(){
+	
+	public DroneFSM(EventListener eventListener){
+		this.eventListener =eventListener;
 		searching = new Searching(this);
 		tracking = new Tracking(this);
 		assisting = new Assisting(this);
@@ -93,8 +95,8 @@ public class DroneFSM {
 	public void recharged() {
 		dronesState.recharged();
 	}
-	public void atBase() {
-		dronesState.atBase();
+	public void returnComplete() {
+		dronesState.returnComplete();
 	}
 	
 	
@@ -103,6 +105,23 @@ public class DroneFSM {
 	public DroneState getTracking() { return tracking; }
 	public DroneState getAssisting() { return assisting; }
 	public DroneState getReturning() { return returning; }
+	public DroneState getAtBase() { return atBase; }
+	
+	
+	public void update(){
+		if (eventListener.getLast() instanceof PONR){
+			nearPONR();
+			
+		}else if(eventListener.getLast() instanceof PlanSent){
+			planRecieved();
+		}else if(eventListener.getLast() instanceof ReturnComplete){
+			returnComplete();
+		}
+		if(!eventListener.getList().isEmpty()){
+			eventListener.getList().remove(eventListener.getList().size()-1);
+		}
+		
+	}
 
 	
 	/*public static void main(String[] args) {
