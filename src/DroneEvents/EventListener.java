@@ -14,13 +14,19 @@ public class EventListener {
 	public List<Event> getList(){
 		return eventList;
 	}
-	public Event getLast(){
-		int index = 0;
+	public Event getFirst(){
 		Event lastEvent = null;
 		if (!eventList.isEmpty()){
-			lastEvent = eventList.get(eventList.size()-1);
+			lastEvent = eventList.get(0);
 		}
 		return lastEvent;
+		
+	}
+	public void removeFirst(){
+		Event lastEvent = null;
+		if (!eventList.isEmpty()){
+			lastEvent = eventList.remove(0);
+		}
 		
 	}
 

@@ -57,7 +57,7 @@ public class AtBase implements DroneState {
 	}
 
 	public void nearPONR() {
-		System.out.println("Cannot Ver at base");
+		//System.out.println("Cannot Ver at base");
 		// TODO Auto-generated method stub
 
 	}

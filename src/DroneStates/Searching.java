@@ -91,7 +91,7 @@ public class Searching implements DroneState {
 
 	@Override
 	public void returnComplete() {
-		System.out.println("Doesnt make Sense");
+		//System.out.println("Doesnt make Sense");
 		// TODO Auto-generated method stub
 		
 	}

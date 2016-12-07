@@ -109,18 +109,20 @@ public class DroneFSM {
 	
 	
 	public void update(){
-		if (eventListener.getLast() instanceof PONR){
-			nearPONR();
-			
-		}else if(eventListener.getLast() instanceof PlanSent){
-			planRecieved();
-		}else if(eventListener.getLast() instanceof ReturnComplete){
-			returnComplete();
-		}
-		if(!eventListener.getList().isEmpty()){
-			eventListener.getList().remove(eventListener.getList().size()-1);
-		}
-		
+		for(int i = 0; i< eventListener.getList().size(); i=i){
+			if (eventListener.getFirst() instanceof PONR){
+				nearPONR();
+				
+			}else if(eventListener.getFirst() instanceof PlanSent){
+				planRecieved();
+			}else if(eventListener.getFirst() instanceof ReturnComplete){
+				returnComplete();
+			}
+			else if(eventListener.getFirst() instanceof BatteryFull){
+				recharged();
+			}
+			eventListener.removeFirst();			
+		}		
 	}
 
 	
