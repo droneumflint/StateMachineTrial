@@ -22,15 +22,19 @@ public class Searching implements DroneState {
 	}
 
 	public void requestVerAssist() {
+		//Calculate batteryLevel and distance from requester(Utility function)
+		//of all drones in searching state to determine best suitable to 
+		//help verify suspected target
 		System.out.println("Moving to Assist");
 		droneFSM.setDroneState(droneFSM.assisting);
-		// TODO Auto-generated method stub
 
 	}
 	public void requestComAssist() {
+		//Calculate batteryLevel and distance from requester(Utility function)
+		//of all drones in searching state to determine best suitable to 
+		//become a proxy drone
 		System.out.println("Moving to Assist");
 		droneFSM.setDroneState(droneFSM.assisting);
-		// TODO Auto-generated method stub
 
 	}
 	public void returnToBase() {
@@ -44,6 +48,7 @@ public class Searching implements DroneState {
 
 	}
 	public void verSuccess() {
+		//Drone has determined the suspected target is indeed the correct target
 		System.out.println("Moving to Track Target");
 		droneFSM.setDroneState(droneFSM.tracking);
 		// TODO Auto-generated method stub
@@ -59,6 +64,7 @@ public class Searching implements DroneState {
 	public void foundTarget() {
 		System.out.println("Moving to Track Target");
 		droneFSM.setDroneState(droneFSM.tracking);
+		//Shouldn't this also raise a requestVerAssist event?
 	}
 
 	public void verAssist() {
@@ -99,6 +105,7 @@ public class Searching implements DroneState {
 
 	@Override
 	public void recharged() {
+		//System.out.println("Doesn't make Sense");
 		// TODO Auto-generated method stub
 		
 	}

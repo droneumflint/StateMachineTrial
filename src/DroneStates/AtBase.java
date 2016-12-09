@@ -57,12 +57,13 @@ public class AtBase implements DroneState {
 	}
 
 	public void nearPONR() {
-		//System.out.println("Cannot Ver at base");
+		System.out.println("Cannot be near PONR while at base");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void foundTarget() {
+		System.out.println("Cannot find target while at base");
 		// TODO Auto-generated method stub
 
 	}
@@ -92,6 +93,7 @@ public class AtBase implements DroneState {
 
 	@Override
 	public void defaultAction() {
+		//Power-up, check batteryLevel, and receive mission?
 		// TODO Auto-generated method stub
 		
 	}
@@ -99,7 +101,11 @@ public class AtBase implements DroneState {
 
 	@Override
 	public void returnComplete() {
-		// TODO Auto-generated method stub
+		System.out.println("The drone has reached the base");
+		// TODO Is this when the drone has reached base? 
+		// if(drone.atBase == True)
+		//		droneState == atBase
+		//		being charging
 		
 	}
 
@@ -107,6 +113,8 @@ public class AtBase implements DroneState {
 	public void recharged() {
 		System.out.println("Recharged at Base, Searching!");
 		droneFSM.setDroneState(droneFSM.searching);
+		//If drone has mission (aka left searching due to PONR), continue 
+		//where mission left off?
 		
 	}
 
