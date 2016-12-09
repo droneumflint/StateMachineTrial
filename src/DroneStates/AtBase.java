@@ -13,13 +13,13 @@ public class AtBase implements DroneState {
 
 
 	public void initalize() {
-		System.out.println("Initalizing at Base");
+		//System.out.println("Initalizing at Base");
 
 	}
 
 
 	public void planRecieved() {
-		System.out.println("Plan Received at Base, Searching!");
+		//System.out.println("Plan Received at Base, Searching!");
 		droneFSM.setDroneState(droneFSM.searching);
 		// TODO Auto-generated method stub
 
@@ -27,43 +27,43 @@ public class AtBase implements DroneState {
 
 
 	public void requestVerAssist() {
-		System.out.println("Moving to Assist");
+		//System.out.println("Moving to Assist");
 		droneFSM.setDroneState(droneFSM.assisting);
 
 	}
 
 	public void requestComAssist() {
-		System.out.println("Moving to Assist");
+		//System.out.println("Moving to Assist");
 		droneFSM.setDroneState(droneFSM.assisting);
 		// TODO Auto-generated method stub
 
 	}
 
 	public void returnToBase() {
-		System.out.println("Already at Base!");
+		//System.out.println("Already at Base!");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void verFailed() {
-		System.out.println("Cannot Ver at base");
+		//System.out.println("Cannot Ver at base");
 
 	}
 
 	public void verSuccess() {
-		System.out.println("Cannot Ver at base");
+		//System.out.println("Cannot Ver at base");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void nearPONR() {
-		System.out.println("Cannot be near PONR while at base");
+		//System.out.println("Cannot be near PONR while at base");
 		// TODO Auto-generated method stub
 
 	}
 
 	public void foundTarget() {
-		System.out.println("Cannot find target while at base");
+		//System.out.println("Cannot find target while at base");
 		// TODO Auto-generated method stub
 
 	}
@@ -101,7 +101,7 @@ public class AtBase implements DroneState {
 
 	@Override
 	public void returnComplete() {
-		System.out.println("The drone has reached the base");
+		//System.out.println("The drone has reached the base");
 		// TODO Is this when the drone has reached base? 
 		// if(drone.atBase == True)
 		//		droneState == atBase
@@ -111,7 +111,7 @@ public class AtBase implements DroneState {
 
 	@Override
 	public void recharged() {
-		System.out.println("Recharged at Base, Searching!");
+		//System.out.println("Recharged at Base, Searching!");
 		droneFSM.setDroneState(droneFSM.searching);
 		//If drone has mission (aka left searching due to PONR), continue 
 		//where mission left off?

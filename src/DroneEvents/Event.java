@@ -1,6 +1,6 @@
 package DroneEvents;
 
-public abstract class Event {
+public class Event {
 	EventListener eventListener;
 	public Event(EventListener eventListener){
 		this.eventListener = eventListener; 
