@@ -3,62 +3,66 @@ package DroneStates;
 public class Tracking implements DroneState {
 	
 	private boolean active = false;
+	private DroneFSM droneFSM;
 
-	public Tracking(DroneFSM drone) {
+	public Tracking(DroneFSM droneFSM) {
+		this.droneFSM = droneFSM;
 		// TODO Auto-generated constructor stub
 	}
+	
 	public void initalize() {
-		// TODO Auto-generated method stub
-
+		// TODO Auto-generated constructor stub
 	}
+	
 	public void planRecieved() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Doesn't make Sense!");
 	}
 
 	public void requestVerAssist() {
-		// TODO Auto-generated method stub
-
+		//If you're in tracking, didn't you already ver target?
+		System.out.println("Doesn't make Sense!");
 	}
 
 	public void requestComAssist() {
-		// TODO Auto-generated method stub
-
+		//Trigger a Utility function for an assistant to become proxy
+		System.out.println("I need to move out of com range, need a proxy");
 	}
 
 	public void returnToBase() {
-		// TODO Auto-generated method stub
-
+		//Should only trigger on missionComplete
+		System.out.println("But I think this is my target, ignore PONR and damaged!");
+		droneFSM.setDroneState(droneFSM.returning);
+		
 	}
 
 	public void verFailed() {
-		// TODO Auto-generated method stub
-
+		//If you're tracking, didn't ver already succeed?
 	}
 
 	public void verSuccess() {
-		// TODO Auto-generated method stub
-
+		//If you're tracking, didn't ver already succeed?
 	}
 
 	public void nearPONR() {
-		// TODO Auto-generated method stub
-
+		//Ignore, since tracking target is more important
+		System.out.println("Tracking target is more important than my life!");
 	}
 
 	public void foundTarget() {
-		// TODO Auto-generated method stub
-
+		//If you're tracking you already found the target correct?
 	}
 
 	public void verAssist() {
-		// TODO Auto-generated method stub
-
+		//If you're in Tracking, you've already verified your target 
+		System.out.println("Doesn't make Sense!");
 	}
 
 	public void comAssist() {
-		// TODO Auto-generated method stub
-
+		//run Utility function to get assistant
+		//Problem? If you're tracking & need to leave com range, wouldn't you
+		//have to either continue following target and break com OR stop moving
+		//(to maintain com range) and potentially lose target
+		System.out.println("I need to leave com range, someone assist me!");
 	}
 	
 	public boolean isActive() {
@@ -74,18 +78,17 @@ public class Tracking implements DroneState {
 	}
 	@Override
 	public void defaultAction() {
-		// TODO Auto-generated method stub
-		
+		//Follow target
 	}
 	@Override
 	public void returnComplete() {
-		// TODO Auto-generated method stub
-		
+		//Only return when mission is complete
+		System.out.println("Moving to Returning");
+		droneFSM.setDroneState(droneFSM.returning);
 	}
 	@Override
 	public void recharged() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Doesn't make Sense!");	
 	}
 
 }
