@@ -32,7 +32,6 @@ public class Tracking implements DroneState {
 		//Should only trigger on missionComplete
 		System.out.println("But I think this is my target, ignore PONR and damaged!");
 		droneFSM.setDroneState(droneFSM.returning);
-		
 	}
 
 	public void verFailed() {
