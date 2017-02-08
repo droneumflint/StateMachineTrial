@@ -64,12 +64,11 @@ public class TestDrone {
 		new PlanSent(eventListener);
 	}
 	//Sets the Drone Batttery to full
-	
-	public int getBattery(){
-		return batteryPercent;
-	}
 	public void recharge(){
 		batteryPercent=100;
+	}
+	public int getBattery(){
+		return batteryPercent;
 	}
 	// move in one dimension
 	public void move(int distance){
@@ -80,6 +79,7 @@ public class TestDrone {
 	public boolean atPonr(){
 		boolean val = false;
 		if (batteryPercent<90){
+			new PONR(eventListener);
 			val = true;
 		}
 		return val;
