@@ -10,12 +10,12 @@ public class Returning implements DroneState {
 
 	public void initalize() {
 		// TODO Auto-generated method stub
-		System.out.println("No Initalizing while Returning");
+		//System.out.println("No Initalizing while Returning");
 	}
 
 	public void planRecieved() {
 		// TODO Auto-generated method stub
-		System.out.println("No Initalizing while Returning");
+		//System.out.println("No Initalizing while Returning");
 
 	}
 
@@ -89,7 +89,7 @@ public class Returning implements DroneState {
 
 	@Override
 	public void returnComplete() {
-		System.out.println("back at Base!");
+		//System.out.println("back at Base!");
 		droneFSM.setDroneState(droneFSM.atBase);
 		// TODO Auto-generated method stub
 		

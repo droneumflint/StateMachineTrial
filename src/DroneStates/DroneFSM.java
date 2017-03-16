@@ -121,6 +121,12 @@ public class DroneFSM {
 			else if(eventListener.getFirst() instanceof BatteryFull){
 				recharged();
 			}
+			else if(eventListener.getFirst() instanceof PossibleTarget){
+				foundTarget();
+			}
+			else if(eventListener.getFirst() instanceof RespondingToRequest){
+				requestVerAssist();
+			}
 			eventListener.removeFirst();			
 		}		
 	}
