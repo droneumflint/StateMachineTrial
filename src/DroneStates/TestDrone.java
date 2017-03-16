@@ -63,7 +63,7 @@ public class TestDrone {
 	private void recievePlan() {
 		new PlanSent(eventListener);
 	}
-	//Sets the Drone Batttery to full
+	//Sets the Drone Battery to full
 	public void recharge(){
 		batteryPercent=100;
 	}
